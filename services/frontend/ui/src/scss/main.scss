@@ -1,0 +1,10 @@
+
+@import 'partials/mixins';
+@import 'partials/vars';
+@import 'partials/animations';
+
+@import './vuetify/overrides';
+
+body{
+	color: $active;
+}

@@ -1,0 +1,49 @@
+@mixin h-center {
+	left: 50%;
+	position: absolute;
+	transform: translateX(-50%);
+}
+@mixin center {
+	left: 50%;
+	position: absolute;
+	top:50%;
+	transform: translate(-50%,-50%);
+}
+
+@mixin corners {
+	background: $bg-primary!important;
+	box-shadow: 5px 4px 9px 5px rgba(0, 0, 0, 0.2), inset 3px 3px 10px 1px rgba(255, 255, 255, 0.4), 8px 3px 5px 0px rgba(0, 0, 0, 0.12) !important;
+	
+	border-radius: 15px;
+	// border: 2px solid #ffffff59;
+}
+
+@mixin fontbase {
+		font-size: 12px;
+		color: $active;
+		font-weight: 500;
+}
+
+@mixin transition {
+	transition: all .4s ease-in;
+	
+}
+
+
+@mixin inShadow {
+	box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.12)!important;
+}
+
+// If set Delay is true then $interval Delay must be 0
+@mixin staggerAnimation($numOfItems, $intervalDelay, $setStagger: false) {
+	@for $i from 1 through $numOfItems {
+		&:nth-child(#{($i)}) {
+			@if $setStagger {
+				$fixedDelay: $intervalDelay + $setStagger * $i;
+				transition-delay: #{$fixedDelay}ms;
+			} @else {
+				transition-delay: #{$intervalDelay * $i}ms;
+			}
+		}
+	}
+}

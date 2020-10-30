@@ -1,0 +1,252 @@
+
+$dropDownHeight: 60px;
+
+// Gloal overrides
+body .v-application .primary--text{
+	color: $inactive !important;
+	caret-color: $inactive !important;
+}
+.v-application{
+	background-color: #aad4ff75 !important;
+}
+p{
+	margin: 0;
+	color: $active;
+}
+// Disable Ripple 
+.v-btn:before {
+	opacity: 0 !important;
+}
+.v-ripple__container {
+	opacity: 0 !important;
+}
+// Card Parent
+.v-card{
+	background: linear-gradient(white, 0%, $bg-primary);
+	margin: 30px auto;
+	padding: 30px 20px;
+	width: 400px;
+	box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.2), 0px 9px 12px 1px rgba(0, 0, 0, 0.14), 0px 3px 16px 2px rgba(0, 0, 0, 0.12)!important;
+	border-radius: 30px;
+	@media only screen and (max-width: 600px) {
+		body {
+			width: 350px;
+		}
+	}
+}
+
+$sideGutter: 50px;
+.drop-down{
+	// Icon 
+	.v-select{
+		.v-menu__content{
+			@include corners
+		}
+		// Selec:
+		.v-input__icon--prepend-inner {
+			width: $sideGutter;
+			i{
+				font-size: 12px;
+				color: $inactive!important;
+				font-style: normal;
+				font-weight: light;
+			}
+		}
+		// Arrow
+		.v-input__append-inner{
+			width: $sideGutter;
+			.v-input__icon--append{
+				@include corners;
+				width: $sideGutter - 10px;
+				height: $sideGutter - 10px;
+				flex: none;
+				margin: 0 auto;
+				border: none;
+				border-radius: 100%;
+			}
+		}
+	}
+	.v-input__slot{
+		text-align: center;
+		@include corners;
+		font-weight: bold;
+		height: $dropDownHeight;
+		.v-select__slot {
+			.v-label{
+				padding-right: 50px;
+				left: 50%!important;
+				transform: translateX(-50%);
+			}
+		}
+	}
+	.v-select__selections{
+		.v-select__selection{
+			margin: auto;
+			color:$active;
+			font-size: 16px;
+			padding: 5px 0px;
+		}
+		input{
+			display: none;
+		}
+	}
+}
+	.v-menu__content{
+	@include corners;
+	.v-list-item__title{
+		@include fontbase;
+	}
+}
+
+
+.v-alert{
+	text-align: center;
+	@include corners;
+	font-weight: bold;
+	margin: $v-space auto;
+	height: $dropDownHeight;
+	padding:0 5px;
+	display: flex;
+	justify-content: center;
+	.v-alert__wrapper{
+		width: 100%;
+	}
+	p{
+		font-size: 14px;
+	}
+
+}
+
+// .v-item-group{
+// 	display:flex;
+// 	justify-content: space-between;
+// 	width: 100%;
+// }
+
+.btns{
+	margin-top: $v-space; 
+	background-color: $bg-primary;
+	display:flex;
+	justify-content: space-between;
+	.v-btn.v-size--default{
+		height: 60px;
+		width: 60px;
+		// vo
+		min-width: 40px;
+		padding: 0;
+		@include corners;
+		border: none;
+		color: $active;
+			@media only screen and (max-width: 600px) {
+				height: 50px;
+				width: 50px;
+				}
+		span{
+			pointer-events: none;
+			opacity: 0.7;
+			transition: all .4s ease-in;
+		}
+		&.is-open{
+			@include inShadow;
+			border: 2px solid #ffffff59;
+			span{
+				opacity: 1;
+			}
+		}
+
+	}
+}
+
+$inputDem: 40px;
+$iconDem: 25px;
+// Toggle Switchs
+.v-input--switch{
+	width: 45%;
+	.v-input__slot{
+		flex-flow: row-reverse;
+		.v-input--switch__track{
+			@include corners;
+			height: $inputDem;
+			width: $inputDem * 1.8;
+			top:0;
+			left:0;
+			border-radius: 50px;
+			opacity: .9;
+			&:after,
+			&:before{
+				content: '';
+				background-image: url('../assets/idea.svg');
+				width: $iconDem;
+				height: $iconDem;
+				display: block;
+				position: absolute;
+				top:50%;
+				transform: translateY(-50%);
+			}
+			&:after{
+				opacity: 1;
+				right: 5px;
+			}
+			&:before{
+				left: 10px;
+				opacity: 0.5;
+			}
+			@media only screen and (max-width: 600px) {
+				height: ($inputDem - 10px);
+				width: ($inputDem - 10px) * 1.8;
+			}
+			&.primary--text{
+				transform: initial !important
+			}
+		}
+		.v-input--selection-controls__input{
+			height: $inputDem;
+			width: $inputDem * 2;
+			@media only screen and (max-width: 600px) {
+				height: ($inputDem - 10px);
+				width: ($inputDem - 10px) * 2;
+			}
+		}
+		.v-input--switch__thumb {
+			@include corners;
+			border: none;
+			width: $inputDem;
+			top:-1px;
+			left: -1px;
+			height: $inputDem;
+			border-radius: 50px;
+			&.primary--text{
+				transform: translate(($inputDem - 5px), 0) !important;
+			}
+			@media only screen and (max-width: 600px) {
+				height: ($inputDem - 10px);
+				width: ($inputDem - 10px);
+				&.primary--text{
+					transform: translate(($inputDem - 15px), 0) !important;
+				}
+			}
+			&:before{
+				content: '';
+				background-image: url('../assets/idea.svg');
+				width: $iconDem;
+				height: $iconDem;
+				display: block;
+				@include center;
+				opacity: 0.5;
+				background-position: center center;
+			}
+			&.primary--text{
+				&:before{
+					opacity: 1;
+				}
+			}
+		}
+		label{
+			@include fontbase
+		}
+	}
+}
+
+
+
+
